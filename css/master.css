@@ -162,9 +162,6 @@ section:nth-child(even) .heading h2{
   flex-direction: column;
   justify-content: center;
 }
-#ScrollContact .form-group {
-  margin: 10px 10px;
-}
 #ScrollContact .form-group label{
   color: #eee;
   text-transform: uppercase;
