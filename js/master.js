@@ -3,7 +3,8 @@ $(document).ready(function(){
       profileOffset = $('#ScrollProfile').offset().top,
       resumeOffset = $('#ScrollResume').offset().top,
       skillsOffset = $('#ScrollSkill').offset().top,
-      portOffset = $('#ScrollPortfolio').offset().top;
+      portOffset = $('#ScrollPortfolio').offset().top,
+        contactOffset = $('#ScrollContact').offset().top;
 
   $(window).scroll(function () {
     var scrollPos = $(window).scrollTop();
@@ -27,9 +28,13 @@ $(document).ready(function(){
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollSkill']").addClass('active_nav');
     }
-    else if (scrollPos > portOffset - 900) {
+    else if (scrollPos > portOffset - 900 && scrollPos < contactOffset - 900) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollPortfolio']").addClass('active_nav');
+    }
+    else if (scrollPos > contactOffset-900) {
+      $("a[href^='#Scroll']").removeClass('active_nav');
+      $("a[href='#ScrollContact']").addClass('active_nav');
     }
     else{
       $("a[href^='#Scroll']").removeClass('active_nav');

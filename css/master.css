@@ -157,16 +157,27 @@ section:nth-child(even) .heading h2{
 #ScrollContact .heading h2{
   color: #eee;
 }
-#ScrollContact .row{
+.mailingForm form{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
-#ScrollContact .form-group label{
+.mailingForm form .form-group{
+  text-align: center;
+  width: 400px;
+  margin: 20px 0;
+}
+.mailingForm form .form-group label{
   color: #eee;
+  font-size: 20px;
+  font-weight: 300;
   text-transform: uppercase;
   text-align: center;
-  font-size: large;
+}
+.mailingForm form button{
+  text-transform: uppercase;
+  font-size: 20px;
 }
 @media only screen and (min-width:500px){
   .name-info img{
