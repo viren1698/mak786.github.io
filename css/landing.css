@@ -28,6 +28,7 @@ body{
 .social-contact{
   position: fixed;
   bottom: 15px;
+  text-align: center;
 }
 .social-contact a{
   margin: 0 10px;
