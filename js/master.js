@@ -16,23 +16,23 @@ $(document).ready(function(){
     }
 
 
-    if (scrollPos  > profileOffset-200 && scrollPos < resumeOffset-450) {
+    if (scrollPos  > profileOffset-60 && scrollPos < resumeOffset-150) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollProfile']").addClass('active_nav');
     }
-    else if (scrollPos > resumeOffset - 450 && scrollPos < skillsOffset-900) {
+    else if (scrollPos > resumeOffset - 150 && scrollPos < skillsOffset-100) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollResume']").addClass('active_nav');
     }
-    else if (scrollPos > skillsOffset-900 && scrollPos < portOffset - 900) {
+    else if (scrollPos > skillsOffset-100 && scrollPos < portOffset - 100) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollSkill']").addClass('active_nav');
     }
-    else if (scrollPos > portOffset - 900 && scrollPos < contactOffset - 900) {
+    else if (scrollPos > portOffset - 100 && scrollPos < contactOffset - 100) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollPortfolio']").addClass('active_nav');
     }
-    else if (scrollPos > contactOffset-900) {
+    else if (scrollPos > contactOffset-100) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollContact']").addClass('active_nav');
     }
@@ -46,15 +46,7 @@ $(document).ready(function(){
       scrollTop: $(id).offset().top}, 600);
       return false;
       });
-  $('.bxslider').bxSlider({
-    infiniteLoop: false,
-    hideControlOnEnd: true,
-    minSlides: 1,
-    maxSlides: 1,
-    moveSlides: 1,
-    pager: false,
-    autoControls:true
-  });
+// portfolio tag
 $("a[href^='#portTag']").click(function () {
   var id = $(this).attr('href');
   if (id == '#portTagWeb') {

@@ -6,7 +6,7 @@ body{
 p{
   font-family: 'Dosis', sans-serif;
 }
-.container-fluid{
+.fullpage{
   background-image: url(../img/backstretch.jpg);
   width: 100%;
   height: 100vh;
@@ -50,8 +50,9 @@ nav a {
   text-transform: uppercase;
   text-align: center;
   margin: 0 10px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
+  letter-spacing: 1px;
 }
 nav a:hover{
   text-decoration: none;
@@ -66,7 +67,7 @@ nav a span{
   left: 0;
   background-color: rgb(13,44,90);
   background-position: center;
-  height: 50px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,9 +77,6 @@ nav a span{
 .active_nav{
   color: #eee;
   border-bottom: 2px solid #eee;
-}
-section:nth-child(even){
-  background-color: #f0f0f0;
 }
 .heading{
   display: flex;
@@ -92,10 +90,13 @@ section:nth-child(even){
   border-bottom: 3px solid #5b9bbc;
   margin-top: 100px;
   margin-bottom: 50px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   letter-spacing: 3px;
 }
-section:nth-child(even) .heading h2{
+.pageInfo .container-fluid{
+  background-color: #f0f0f0;
+}
+.pageInfo .container-fluid section .heading h2{
   border-bottom: 3px solid #ff6f69;
 }
 #ScrollProfile .col-md-4{
@@ -120,31 +121,14 @@ section:nth-child(even) .heading h2{
   margin-top: 10px;
 }
 .fa{
-  font-size: 45px;
+  font-size: 40px;
   text-align: center;
 }
 #ScrollResume{
   text-align: center;
 }
-.eandt{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.eandt h3{
-  text-align: center;
-  font-family: 'Dosis', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: lighter;
-  font-size: 30px;
-}
 #and{
   font-size: 20px;
-  margin: 0 10px;
 }
 .underline{
   background-color: #ff6f69;
