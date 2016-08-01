@@ -120,35 +120,87 @@ section:nth-child(even) .heading h2{
   margin-top: 10px;
 }
 .fa{
-  font-size: 35px;
+  font-size: 45px;
   text-align: center;
 }
-#ScrollResume .row h3{
+#ScrollResume{
+  text-align: center;
+}
+.eandt{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.eandt h3{
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: lighter;
   font-size: 30px;
 }
-.education,.work-experience{
-  position: relative;
-  left: 10px;
-  margin-right: 10px;
-  margin-bottom: 50px;
+#and{
+  font-size: 20px;
+  margin: 0 10px;
 }
-.graduation table caption{
-  text-align: center;
+.underline{
+  background-color: #ff6f69;
+  width: 25%;
+  height: 2px;
+}
+#ScrollResume h4{
+  text-transform: uppercase;
   font-size: 25px;
-  border-bottom: 2px solid white;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
+  letter-spacing: 2px;
+  font-weight: normal;
 }
-.graduation table th{
-  padding-right: 15px;
-  padding-left: 5px;
+.qulifications{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.graduation table th,td{
-  padding-bottom: 15px;
-  vertical-align: top;
-  text-align: left;
+.qulifications h5{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  margin: 15px 0;
+}
+.qulifications h6{
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: 'Dosis', sans-serif;
+}
+.qulifications h6 span{
+  font-weight: bolder;
+}
+.graduation{
+  margin: 30px 0;
+}
+#ScrollSkill h3{
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  font-weight: lighter;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.additional-skills .row .col-md-4{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.additional-skills .row .col-md-4 label{
   font-size: 18px;
+  font-weight: lighter;
 }
+
 #ScrollContact{
   background-color: rgb(13,44,90);
   width: 100%;

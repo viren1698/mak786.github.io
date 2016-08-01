@@ -86,4 +86,49 @@ $("a[href^='#portTag']").click(function () {
     $(this).parents('li').addClass('active');
   }
 });
+
+// getting height and width of div containing canvas
+var canvasWidth = $(".additional-skills .col-md-4").outerWidth();
+var canvasHeight = $(".additional-skills .col-md-4").outerHeight();
+console.log("canvasHeight : "+canvasHeight+" canvasWidth : "+canvasWidth);
+var canvasC = document.getElementById('communication');
+drawCanvas(canvasC,canvasWidth,canvasHeight,0.60);
+var canvasL = document.getElementById('leadership');
+drawCanvas(canvasL,canvasWidth,canvasHeight,0.70);
+var canvasH = document.getElementById('humour');
+drawCanvas(canvasH,canvasWidth,canvasHeight,0.85);
+var canvasy = document.getElementById("hello");
+drawCanvas(canvasy,500,500,0.70);
+
 });
+function drawCanvas(canvas,width,height,pct) {
+  start = ((2*pct)-1.5)+1;
+  canvas.height = height;
+  canvas.width = width;
+  console.log("canvas.height : "+canvas.height+" canvas.width : "+canvas.width);
+  var ctx = canvas.getContext("2d");
+  console.log(ctx);
+  // translate to center
+  ctx.translate(canvas.width / 2,canvas.height / 2);
+
+  radius = (canvas.height / 2) * 0.80;
+
+  // drawing circular progress bar
+  ctx.beginPath();
+  ctx.lineCap="round";
+  ctx.arc(0, 0, radius, 1.5*Math.PI, start*Math.PI);
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "#f08b65";
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, (start)*Math.PI, 1.5*Math.PI);
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "#f0f0f0";
+  ctx.stroke();
+
+  var text = (pct*100)+"%";
+  ctx.font='25px Courier New';
+  ctx.textAlign="center";
+  ctx.fillText(text, 0, 0);
+}
