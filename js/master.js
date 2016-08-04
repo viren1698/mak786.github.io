@@ -5,7 +5,7 @@ $(document).ready(function(){
       skillsOffset = $('#ScrollSkill').offset().top,
       portOffset = $('#ScrollPortfolio').offset().top,
         contactOffset = $('#ScrollContact').offset().top;
-
+// smooth scrolling
   $(window).scroll(function () {
     var scrollPos = $(window).scrollTop();
     if (scrollPos > navOffset-20) {
@@ -16,23 +16,23 @@ $(document).ready(function(){
     }
 
 
-    if (scrollPos  > profileOffset-60 && scrollPos < resumeOffset-150) {
+    if (scrollPos  > profileOffset-60 && scrollPos < resumeOffset-250) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollProfile']").addClass('active_nav');
     }
-    else if (scrollPos > resumeOffset - 150 && scrollPos < skillsOffset-100) {
+    else if (scrollPos > resumeOffset - 250 && scrollPos < skillsOffset-200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollResume']").addClass('active_nav');
     }
-    else if (scrollPos > skillsOffset-100 && scrollPos < portOffset - 100) {
+    else if (scrollPos > skillsOffset-200 && scrollPos < portOffset - 200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollSkill']").addClass('active_nav');
     }
-    else if (scrollPos > portOffset - 100 && scrollPos < contactOffset - 100) {
+    else if (scrollPos > portOffset - 200 && scrollPos < contactOffset - 200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollPortfolio']").addClass('active_nav');
     }
-    else if (scrollPos > contactOffset-100) {
+    else if (scrollPos > contactOffset-200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollContact']").addClass('active_nav');
     }
@@ -47,37 +47,41 @@ $(document).ready(function(){
       return false;
       });
 // portfolio tag
-$("a[href^='#portTag']").click(function () {
-  var id = $(this).attr('href');
-  if (id == '#portTagWeb') {
-    $('.android').css('display','none');
-    $('.other').css('display','none');
-    $('.web').css('display','inline-block');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-  else if (id=="#portTagAndroid") {
-    $('.web').css('display','none');
-    $('.other').css('display','none');
-    $('.android').css('display','inline-block');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-  else if (id == "#portTagOther") {
-    $('.web').css('display','none');
-    $('.other').css('display','inline-block');
-    $('.android').css('display','none');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-  else {
-    $('.other').css('display','inline-block');
-    $('.android').css('display','inline-block');
-    $('.web').css('display','inline-block');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-});
+  $(".portNav #all").css("color","#ff6f69");
+  $(".portNav button").click(function () {
+    clicked = $(this).attr("id");
+    if (clicked == 'all') {
+      $(".portNav #all").css("color","#ff6f69");
+      $(".portNav #android").css("color","black");
+      $(".portNav #python").css("color","black");
+      $(".portNav #others").css("color","black");
+      $(".portContent button").css("display",'inline-block');
+    }
+    else if (clicked == 'android') {
+      $(".portNav #all").css("color","black");
+      $(".portNav #android").css("color","#ff6f69");
+      $(".portNav #python").css("color","black");
+      $(".portNav #others").css("color","black");
+      $(".portContent button").css("display",'none');
+      $(".portContent .android").css("display",'inline-block');
+    }
+    else if (clicked == 'python') {
+      $(".portNav #all").css("color","black");
+      $(".portNav #android").css("color","black");
+      $(".portNav #python").css("color","#ff6f69");
+      $(".portNav #others").css("color","black");
+      $(".portContent button").css("display",'none');
+      $(".portContent .python").css("display",'inline-block');
+    }
+    else if (clicked == 'others') {
+      $(".portNav #all").css("color","black");
+      $(".portNav #android").css("color","black");
+      $(".portNav #python").css("color","black");
+      $(".portNav #others").css("color","#ff6f69");
+      $(".portContent button").css("display",'none');
+      $(".portContent .others").css("display",'inline-block');
+    }
+  });
 
 // getting height and width of div containing canvas
 var canvasWidth = $(".additional-skills .col-md-4").outerWidth();
