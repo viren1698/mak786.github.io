@@ -4,8 +4,10 @@ $(document).ready(function(){
       resumeOffset = $('#ScrollResume').offset().top,
       skillsOffset = $('#ScrollSkill').offset().top,
       portOffset = $('#ScrollPortfolio').offset().top,
-        contactOffset = $('#ScrollContact').offset().top;
+      contactOffset = $('#ScrollContact').offset().top,
+      additionalSkillsOffset = $('.additional-skills').offset().top;
 
+// smooth scrolling
   $(window).scroll(function () {
     var scrollPos = $(window).scrollTop();
     if (scrollPos > navOffset-20) {
@@ -14,25 +16,23 @@ $(document).ready(function(){
     else {
       $('nav').removeClass('navbar-fixed-top');
     }
-
-
-    if (scrollPos  > profileOffset-200 && scrollPos < resumeOffset-450) {
+    if (scrollPos  > profileOffset-60 && scrollPos < resumeOffset-250) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollProfile']").addClass('active_nav');
     }
-    else if (scrollPos > resumeOffset - 450 && scrollPos < skillsOffset-900) {
+    else if (scrollPos > resumeOffset - 250 && scrollPos < skillsOffset-200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollResume']").addClass('active_nav');
     }
-    else if (scrollPos > skillsOffset-900 && scrollPos < portOffset - 900) {
+    else if (scrollPos > skillsOffset-200 && scrollPos < portOffset - 200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollSkill']").addClass('active_nav');
     }
-    else if (scrollPos > portOffset - 900 && scrollPos < contactOffset - 900) {
+    else if (scrollPos > (portOffset - 200) && scrollPos < (contactOffset - 200)) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollPortfolio']").addClass('active_nav');
     }
-    else if (scrollPos > contactOffset-900) {
+    else if (scrollPos > contactOffset-200) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollContact']").addClass('active_nav');
     }
@@ -46,44 +46,84 @@ $(document).ready(function(){
       scrollTop: $(id).offset().top}, 600);
       return false;
       });
-  $('.bxslider').bxSlider({
-    infiniteLoop: false,
-    hideControlOnEnd: true,
-    minSlides: 1,
-    maxSlides: 1,
-    moveSlides: 1,
-    pager: false,
-    autoControls:true
+// portfolio tag
+  $(".portNav #all").css("color","#ff6f69");
+  $(".portNav button").click(function () {
+    clicked = $(this).attr("id");
+    if (clicked == 'all') {
+      $(".portNav #all").css("color","#ff6f69");
+      $(".portNav #android").css("color","black");
+      $(".portNav #python").css("color","black");
+      $(".portNav #others").css("color","black");
+      $(".portContent button").css("display",'inline-block');
+    }
+    else if (clicked == 'android') {
+      $(".portNav #all").css("color","black");
+      $(".portNav #android").css("color","#ff6f69");
+      $(".portNav #python").css("color","black");
+      $(".portNav #others").css("color","black");
+      $(".portContent button").css("display",'none');
+      $(".portContent .android").css("display",'inline-block');
+    }
+    else if (clicked == 'python') {
+      $(".portNav #all").css("color","black");
+      $(".portNav #android").css("color","black");
+      $(".portNav #python").css("color","#ff6f69");
+      $(".portNav #others").css("color","black");
+      $(".portContent button").css("display",'none');
+      $(".portContent .python").css("display",'inline-block');
+    }
+    else if (clicked == 'others') {
+      $(".portNav #all").css("color","black");
+      $(".portNav #android").css("color","black");
+      $(".portNav #python").css("color","black");
+      $(".portNav #others").css("color","#ff6f69");
+      $(".portContent button").css("display",'none');
+      $(".portContent .others").css("display",'inline-block');
+    }
   });
-$("a[href^='#portTag']").click(function () {
-  var id = $(this).attr('href');
-  if (id == '#portTagWeb') {
-    $('.android').css('display','none');
-    $('.other').css('display','none');
-    $('.web').css('display','inline-block');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-  else if (id=="#portTagAndroid") {
-    $('.web').css('display','none');
-    $('.other').css('display','none');
-    $('.android').css('display','inline-block');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-  else if (id == "#portTagOther") {
-    $('.web').css('display','none');
-    $('.other').css('display','inline-block');
-    $('.android').css('display','none');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
-  else {
-    $('.other').css('display','inline-block');
-    $('.android').css('display','inline-block');
-    $('.web').css('display','inline-block');
-    $("a[href^='#portTag']").parents('li').removeClass('active');
-    $(this).parents('li').addClass('active');
-  }
+  // getting height and width of div containing canvas
+  var canvasWidth = $(".additional-skills .col-md-4").outerWidth();
+  var canvasHeight = $(".additional-skills .col-md-4").outerHeight();
+  console.log("canvasHeight : "+canvasHeight+" canvasWidth : "+canvasWidth);
+  var canvasC = document.getElementById('communication');
+  drawCanvas(canvasC,canvasWidth,canvasHeight,0.60);
+  var canvasL = document.getElementById('leadership');
+  drawCanvas(canvasL,canvasWidth,canvasHeight,0.70);
+  var canvasH = document.getElementById('humour');
+  drawCanvas(canvasH,canvasWidth,canvasHeight,0.85);
 });
-});
+function drawCanvas(canvas,width,height,pct) {
+  console.log(width,height);
+  var al = pct*100;
+  var start = 4.72;
+  canvas.height = height;
+  canvas.width = width;
+
+  var diff = ((al / 100) * Math.PI*2*10).toFixed(2);
+  var ctx = canvas.getContext("2d");
+
+  ctx.translate(canvas.width / 2,canvas.height / 2);
+
+  radius = (canvas.height / 2) * 0.80;
+
+
+  ctx.beginPath();
+
+  ctx.arc(0, 0, radius, start, diff/10+start, false);
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "#f08b65";
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, diff/10+start, start, false);
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "#f0f0f0";
+  ctx.stroke();
+
+  var text = (pct*100)+"%";
+  ctx.font='25px Courier New';
+  ctx.textAlign="center";
+  ctx.fillText(text, 0, 0);
+
+}
