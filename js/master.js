@@ -82,10 +82,28 @@ $(document).ready(function(){
       $(".portContent .others").css("display",'inline-block');
     }
   });
+
+
+  // send email using formspree.io
+  var message = "";
+
+  $("#sendMessage").on("click", function() {
+      message = $("#contactform").serialize();
+      $.ajax({
+          url: "https://formspree.io/ajamalkhan65@gmail.com",
+          method: "POST",
+          data: {message: message},
+          dataType: "json"
+      });
+      // alert('Thanks for the email, we\'ll be in touch promptly.');
+      $('#thankyou').modal()
+      return false;
+  });
+
   // getting height and width of div containing canvas
   var canvasWidth = $(".additional-skills .col-md-4").outerWidth();
   var canvasHeight = $(".additional-skills .col-md-4").outerHeight();
-  console.log("canvasHeight : "+canvasHeight+" canvasWidth : "+canvasWidth);
+  // console.log("canvasHeight : "+canvasHeight+" canvasWidth : "+canvasWidth);
   var canvasC = document.getElementById('communication');
   drawCanvas(canvasC,canvasWidth,canvasHeight,0.60);
   var canvasL = document.getElementById('leadership');
@@ -94,7 +112,7 @@ $(document).ready(function(){
   drawCanvas(canvasH,canvasWidth,canvasHeight,0.85);
 });
 function drawCanvas(canvas,width,height,pct) {
-  console.log(width,height);
+  // console.log(width,height);
   var al = pct*100;
   var start = 4.72;
   canvas.height = height;

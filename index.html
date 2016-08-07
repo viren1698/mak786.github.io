@@ -307,7 +307,7 @@
       <h2>Let's get in touch</h2>
     </div>
     <div class="mailingForm">
-      <form action="https://formspree.io/ajamalkhan65@gmail.com" method="POST">
+      <form id="contactform" method="POST">
         <div class="form-group">
           <label for="name">What's your name?</label>
           <input type="text" class="form-control" id="name" name="name" placeholder="Your Name...">
@@ -322,16 +322,15 @@
         </div>
         <input type="hidden" name="_subject" value="New submission! On ajamalkhan.me" />
         <input type="text" name="_gotcha" style="display:none" />
-        <input type="hidden" name="_format" value="plain" />
-        <input type="hidden" name="_next" value="/#thankyou" />
-        <button type="submit" class="btn btn-success">send the pigeons!</button>
-
+        <!-- <input type="hidden" name="_format" value="plain" /> -->
+        <!-- <input type="hidden" name="_next" value="/#thankyou" /> -->
+        <button type="button" id="sendMessage" class="btn btn-success">send the pigeons!</button>
       </form>
       <a href="data/Resume.pdf">Download my Resume</a>
     </div>
-  </section>
 
-  <div class="modal fade" tabindex="-1" role="dialog" id="thankyou">
+<!-- Thank you message after submition -->
+    <div class="modal fade" id="thankyou" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -348,6 +347,9 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+  </section>
+
+
 
   <!-- jQuery Script -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
