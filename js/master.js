@@ -85,19 +85,18 @@ $(document).ready(function(){
 
 
   // send email using formspree.io
-  var message = "";
-
+  var message = $("#contactform textarea").text;
+  console.log(message);
   $("#sendMessage").on("click", function() {
-      message = $("#contactform").serialize();
-      $.ajax({
-          url: "https://formspree.io/ajamalkhan65@gmail.com",
-          method: "POST",
-          data: {message: message},
-          dataType: "json"
-      });
-      // alert('Thanks for the email, we\'ll be in touch promptly.');
-      $('#thankyou').modal()
-      return false;
+    $.ajax({
+      url: "https://formspree.io/ajamalkhan65@gmail.com",
+      method: "POST",
+      data: {message: message},
+      dataType: "json"
+    });
+    // alert('Thanks for the email, we\'ll be in touch promptly.');
+    $('#thankyou').modal()
+    return false;
   });
 
   // getting height and width of div containing canvas
