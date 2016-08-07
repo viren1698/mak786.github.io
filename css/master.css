@@ -251,6 +251,9 @@ nav a span{
   justify-content: center;
   margin: 20px 0;
 }
+.modal-content .modal-body{
+  margin: 10px 10px;
+}
 .modal-content .description p, ol li{
   font-size: 18px;
   font-family: 'Raleway', sans-serif;
@@ -332,6 +335,9 @@ nav a span{
   .portContent button img{
     width: 100px;
     height: 100px;
+  }
+  .modal-content .modal-body{
+    margin: 10px 50px;
   }
   .mailingForm form .form-group{
     width: 350px;

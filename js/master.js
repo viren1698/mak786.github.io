@@ -4,7 +4,9 @@ $(document).ready(function(){
       resumeOffset = $('#ScrollResume').offset().top,
       skillsOffset = $('#ScrollSkill').offset().top,
       portOffset = $('#ScrollPortfolio').offset().top,
-        contactOffset = $('#ScrollContact').offset().top;
+      contactOffset = $('#ScrollContact').offset().top,
+      additionalSkillsOffset = $('.additional-skills').offset().top;
+
 // smooth scrolling
   $(window).scroll(function () {
     var scrollPos = $(window).scrollTop();
@@ -14,8 +16,6 @@ $(document).ready(function(){
     else {
       $('nav').removeClass('navbar-fixed-top');
     }
-
-
     if (scrollPos  > profileOffset-60 && scrollPos < resumeOffset-250) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollProfile']").addClass('active_nav');
@@ -28,7 +28,7 @@ $(document).ready(function(){
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollSkill']").addClass('active_nav');
     }
-    else if (scrollPos > portOffset - 200 && scrollPos < contactOffset - 200) {
+    else if (scrollPos > (portOffset - 200) && scrollPos < (contactOffset - 200)) {
       $("a[href^='#Scroll']").removeClass('active_nav');
       $("a[href='#ScrollPortfolio']").addClass('active_nav');
     }
@@ -82,43 +82,41 @@ $(document).ready(function(){
       $(".portContent .others").css("display",'inline-block');
     }
   });
-
-// getting height and width of div containing canvas
-var canvasWidth = $(".additional-skills .col-md-4").outerWidth();
-var canvasHeight = $(".additional-skills .col-md-4").outerHeight();
-console.log("canvasHeight : "+canvasHeight+" canvasWidth : "+canvasWidth);
-var canvasC = document.getElementById('communication');
-drawCanvas(canvasC,canvasWidth,canvasHeight,0.60);
-var canvasL = document.getElementById('leadership');
-drawCanvas(canvasL,canvasWidth,canvasHeight,0.70);
-var canvasH = document.getElementById('humour');
-drawCanvas(canvasH,canvasWidth,canvasHeight,0.85);
-var canvasy = document.getElementById("hello");
-drawCanvas(canvasy,500,500,0.70);
-
+  // getting height and width of div containing canvas
+  var canvasWidth = $(".additional-skills .col-md-4").outerWidth();
+  var canvasHeight = $(".additional-skills .col-md-4").outerHeight();
+  console.log("canvasHeight : "+canvasHeight+" canvasWidth : "+canvasWidth);
+  var canvasC = document.getElementById('communication');
+  drawCanvas(canvasC,canvasWidth,canvasHeight,0.60);
+  var canvasL = document.getElementById('leadership');
+  drawCanvas(canvasL,canvasWidth,canvasHeight,0.70);
+  var canvasH = document.getElementById('humour');
+  drawCanvas(canvasH,canvasWidth,canvasHeight,0.85);
 });
 function drawCanvas(canvas,width,height,pct) {
-  start = ((2*pct)-1.5)+1;
+  console.log(width,height);
+  var al = pct*100;
+  var start = 4.72;
   canvas.height = height;
   canvas.width = width;
-  console.log("canvas.height : "+canvas.height+" canvas.width : "+canvas.width);
+
+  var diff = ((al / 100) * Math.PI*2*10).toFixed(2);
   var ctx = canvas.getContext("2d");
-  console.log(ctx);
-  // translate to center
+
   ctx.translate(canvas.width / 2,canvas.height / 2);
 
   radius = (canvas.height / 2) * 0.80;
 
-  // drawing circular progress bar
+
   ctx.beginPath();
-  ctx.lineCap="round";
-  ctx.arc(0, 0, radius, 1.5*Math.PI, start*Math.PI);
+
+  ctx.arc(0, 0, radius, start, diff/10+start, false);
   ctx.lineWidth = 5;
   ctx.strokeStyle = "#f08b65";
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(0, 0, radius, (start)*Math.PI, 1.5*Math.PI);
+  ctx.arc(0, 0, radius, diff/10+start, start, false);
   ctx.lineWidth = 5;
   ctx.strokeStyle = "#f0f0f0";
   ctx.stroke();
@@ -127,4 +125,5 @@ function drawCanvas(canvas,width,height,pct) {
   ctx.font='25px Courier New';
   ctx.textAlign="center";
   ctx.fillText(text, 0, 0);
+
 }
