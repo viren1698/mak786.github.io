@@ -85,7 +85,7 @@ $(document).ready(function(){
 
 
   // send email using formspree.io
-  var message = $('#contactform textarea').value;
+  var message = $('#contactform textarea').text;
   $("#sendMessage").on("click", function() {
     message = $("#contactform").serialize();
     $.ajax({
