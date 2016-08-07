@@ -314,7 +314,7 @@
         </div>
         <div class="form-group">
           <label for="email">What's your e-mail?</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="Your E-mail...">
+          <input type="email" class="form-control" id="email" name="_replyto" placeholder="Your E-mail...">
         </div>
         <div class="form-group">
           <label for="message">What do you have in mind?</label>
@@ -323,13 +323,31 @@
         <input type="hidden" name="_subject" value="New submission! On ajamalkhan.me" />
         <input type="text" name="_gotcha" style="display:none" />
         <input type="hidden" name="_format" value="plain" />
-        <!-- <input type="hidden" name="_next" value="//site.io/thanks.html" /> -->
+        <input type="hidden" name="_next" value="ajamalkhan.me/#thankyou" />
         <button type="submit" class="btn btn-success">send the pigeons!</button>
 
       </form>
       <a href="data/Resume.pdf">Download my Resume</a>
     </div>
   </section>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="thankyou">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
   <!-- jQuery Script -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
