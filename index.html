@@ -307,20 +307,25 @@
       <h2>Let's get in touch</h2>
     </div>
     <div class="mailingForm">
-      <form>
+      <form action="https://formspree.io/ajamalkhan65@gmail.com" method="POST">
         <div class="form-group">
           <label for="name">What's your name?</label>
-          <input type="text" class="form-control" id="name" placeholder="Your Name...">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Your Name...">
         </div>
         <div class="form-group">
           <label for="email">What's your e-mail?</label>
-          <input type="email" class="form-control" id="email" placeholder="Your E-mail...">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Your E-mail...">
         </div>
         <div class="form-group">
           <label for="message">What do you have in mind?</label>
-          <textarea type="email" class="form-control" id="message" placeholder="Your Message..." rows="3"></textarea>
+          <textarea type="email" class="form-control" id="message" name="message"placeholder="Your Message..." rows="3"></textarea>
         </div>
-        <button type="button" class="btn btn-success">send the pigeons!</button>
+        <input type="hidden" name="_subject" value="New submission! On ajamalkhan.me" />
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_format" value="plain" />
+        <!-- <input type="hidden" name="_next" value="//site.io/thanks.html" /> -->
+        <button type="submit" class="btn btn-success">send the pigeons!</button>
+
       </form>
       <a href="data/Resume.pdf">Download my Resume</a>
     </div>
