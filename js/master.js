@@ -47,37 +47,37 @@ $(document).ready(function(){
       return false;
       });
 // portfolio tag
-  $(".portNav #all").css("color","#ff6f69");
+  $(".portNav #PortNavall").css("color","#ff6f69");
   $(".portNav button").click(function () {
     clicked = $(this).attr("id");
-    if (clicked == 'all') {
-      $(".portNav #all").css("color","#ff6f69");
-      $(".portNav #android").css("color","black");
-      $(".portNav #python").css("color","black");
-      $(".portNav #others").css("color","black");
+    if (clicked == 'PortNavAll') {
+      $(".portNav #PortNavAll").css("color","#ff6f69");
+      $(".portNav #PortNavAndroid").css("color","black");
+      $(".portNav #PortNavPython").css("color","black");
+      $(".portNav #PortNavOthers").css("color","black");
       $(".portContent button").css("display",'inline-block');
     }
-    else if (clicked == 'android') {
-      $(".portNav #all").css("color","black");
-      $(".portNav #android").css("color","#ff6f69");
-      $(".portNav #python").css("color","black");
-      $(".portNav #others").css("color","black");
+    else if (clicked == 'PortNavAndroid') {
+      $(".portNav #PortNavAll").css("color","black");
+      $(".portNav #PortNavAndroid").css("color","#ff6f69");
+      $(".portNav #PortNavPython").css("color","black");
+      $(".portNav #PortNavOthers").css("color","black");
       $(".portContent button").css("display",'none');
       $(".portContent .android").css("display",'inline-block');
     }
-    else if (clicked == 'python') {
-      $(".portNav #all").css("color","black");
-      $(".portNav #android").css("color","black");
-      $(".portNav #python").css("color","#ff6f69");
-      $(".portNav #others").css("color","black");
+    else if (clicked == 'PortNavPython') {
+      $(".portNav #PortNavAll").css("color","black");
+      $(".portNav #PortNavAndroid").css("color","black");
+      $(".portNav #PortNavPython").css("color","#ff6f69");
+      $(".portNav #PortNavOthers").css("color","black");
       $(".portContent button").css("display",'none');
       $(".portContent .python").css("display",'inline-block');
     }
-    else if (clicked == 'others') {
-      $(".portNav #all").css("color","black");
-      $(".portNav #android").css("color","black");
-      $(".portNav #python").css("color","black");
-      $(".portNav #others").css("color","#ff6f69");
+    else if (clicked == 'PortNavOthers') {
+      $(".portNav #PortNavAll").css("color","black");
+      $(".portNav #PortNavAndroid").css("color","black");
+      $(".portNav #PortNavPython").css("color","black");
+      $(".portNav #PortNavOthers").css("color","#ff6f69");
       $(".portContent button").css("display",'none');
       $(".portContent .others").css("display",'inline-block');
     }
